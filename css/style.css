@@ -1,0 +1,665 @@
+html {
+    font-family:'Sour Gummy', Georgia, 'Times New Roman', Times, serif;
+    background-color: #fffcf2;
+}
+
+p.regular-para{
+    margin: 15px 70px 30px 70px
+}
+
+p.regular-para-2{
+    margin: 30px
+}
+
+h1{
+    margin: 0px 50px;
+    font-size:xx-large;
+}
+
+h2{
+    margin: 0px 50px;
+    font-size:x-large;
+}
+
+
+/* HIDE SKIP TO MAIN CONTENT 
+until tabbed to focus, added a skip class to html */
+a.skip {
+    position: absolute;
+    top: -100px;
+    background-color: #03635D;
+    color: white;
+    transition: top .5s;
+    padding:10px;
+    z-index: 100000;
+}
+
+.skip:focus{
+    top:0px;
+}
+
+
+/* HORIZONTAL NAVBAR */
+nav {
+    width: 100vw;
+    border-bottom: solid #037971;
+    background-color: #fffcf2;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top:0;
+    z-index: 10000;
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    list-style: none;
+    padding: 0;
+}
+nav li{
+    padding: 1em 2em;
+    margin: auto;
+}
+
+/* DIFFERENT LINK STATES IN NAVBAR */
+nav a{
+    color: black;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+}
+/* unvisited */
+nav a:link{
+    color: black
+}
+/* hover */
+nav a:hover, nav a:focus{
+    background-color: #03635D;
+    font-weight: bold;
+    color: white;
+    padding:20px;
+    border-radius: 3px;
+    text-decoration: underline;
+}
+
+/* active */
+a:active{
+    font-size: 110%;
+    text-decoration: underline;
+}
+
+/* if user is on this page, indicate in nav bar */
+.on-page{
+    font-weight: bold;
+    font-size: 110%;
+    padding:20px;
+    color:#03635D;
+    text-decoration: underline;
+}
+
+
+/* WELCOME HERO SECTION */
+#welcome{
+    background-image: url(../images/bg.png);
+    height: 400px;
+    width:100%;
+    background-size:contain;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden; 
+}
+
+#main-logo img{
+    display: block;
+    width: 12%;
+    position: absolute; /* Position the logo above the background */
+    top: 0; /* Adjust to place the logo in the desired position */
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+#header-homepage{
+    text-align: center;
+    font-size:300%;
+    margin-top: 70px;
+    position: absolute; /* Position the logo above the background */
+    top: 20%; /* Adjust to place the logo in the desired position */
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.header-regular{
+    text-align: center;
+    font-size:300%;
+    margin: 50px;
+}
+
+/* FALLING CSS IN HERO SECTION */
+@-webkit-keyframes snowflakes-fall {
+    0% {
+        top: -10%
+    }
+    100% {
+        top: 100%
+    }
+}
+
+@-webkit-keyframes snowflakes-shake {
+    0%,
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+    50% {
+        -webkit-transform: translateX(80px);
+        transform: translateX(80px)
+    }
+}
+
+@keyframes snowflakes-fall {
+    0% {
+        top: -10%
+    }
+    100% {
+        top: 100%
+    }
+}
+
+@keyframes snowflakes-shake {
+    0%,
+    100% {
+        transform: translateX(0)
+    }
+    50% {
+        transform: translateX(80px)
+    }
+}
+
+.snowflakes {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    clip-path: inset(0); /* Clips the child elements to the #welcome section */
+}
+
+.snowflake {
+    position: fixed;
+    width: 80px;
+    top: -10%;
+    z-index: -10;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+    -webkit-animation-duration: 10s, 3s;
+    -webkit-animation-timing-function: linear, ease-in-out;
+    -webkit-animation-iteration-count: infinite, infinite;
+    -webkit-animation-play-state: running, running;
+    animation-name: snowflakes-fall, snowflakes-shake;
+    animation-duration: 10s, 3s;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-play-state: running, running
+}
+
+.snowflake:nth-of-type(0) {
+    left: 1%;
+    -webkit-animation-delay: 0s, 0s;
+    animation-delay: 0s, 0s
+}
+
+.snowflake:nth-of-type(1) {
+    left: 10%;
+    -webkit-animation-delay: 1s, 1s;
+    animation-delay: 1s, 1s
+}
+
+.snowflake:nth-of-type(2) {
+    left: 20%;
+    -webkit-animation-delay: 6s, .5s;
+    animation-delay: 6s, .5s
+}
+
+.snowflake:nth-of-type(3) {
+    left: 30%;
+    -webkit-animation-delay: 4s, 2s;
+    animation-delay: 4s, 2s
+}
+
+.snowflake:nth-of-type(4) {
+    left: 40%;
+    -webkit-animation-delay: 2s, 2s;
+    animation-delay: 2s, 2s
+}
+
+.snowflake:nth-of-type(5) {
+    left: 50%;
+    -webkit-animation-delay: 8s, 3s;
+    animation-delay: 8s, 3s
+}
+
+.snowflake:nth-of-type(6) {
+    left: 60%;
+    -webkit-animation-delay: 6s, 2s;
+    animation-delay: 6s, 2s
+}
+
+.snowflake:nth-of-type(7) {
+    left: 70%;
+    -webkit-animation-delay: 2.5s, 1s;
+    animation-delay: 2.5s, 1s
+}
+
+.snowflake:nth-of-type(8) {
+    left: 80%;
+    -webkit-animation-delay: 1s, 0s;
+    animation-delay: 1s, 0s
+}
+
+
+/* PROFILE SECTION */
+#profile-section{
+    display: flex;
+    align-items: center;
+    margin: 15px 70px 30px 70px;
+}
+
+div.profile-section-photos {
+    display: flex;
+    gap:10px;
+  }
+  
+
+#profile-section a {
+    width: 100%;
+}
+
+#profile-section img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+    }
+    
+#profile-section img:hover  {
+    transform: translateY(-10px); 
+}
+
+/* TOPIC CARDS GRID */
+#topic-cards-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 20px;
+    row-gap: 50px;
+    padding:10px 30px;
+
+}
+
+
+/* Wrapper for the entire card */
+.topic-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    height: 200px; 
+    position: relative;
+    text-decoration: none;
+    
+}
+
+/* Image container style */
+.card-container {
+    flex-grow: 1; /* Makes sure the image container fills the available space */
+    overflow: hidden;
+}
+
+/* Image styles */
+.card-container img {
+    width: 100%;
+    height: 100%; /* Ensures the image takes up the full card height */
+    object-fit: cover; /* Ensures the image covers the area of the card without distortion */
+    border-radius: 8px; 
+}
+
+.topic-card:hover,.topic-card:focus {
+border-bottom: solid 7px #03635D;
+box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+  
+  /* Button-style overlay (card text) */
+  .card-text {
+    /* positioning */
+    position: absolute;
+    bottom: -20px; /* Push part of the button beyond the image */
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* styling */
+    background-color: #03635D; 
+    color: white;
+    font-size: 1rem;
+    font-weight:bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: auto; /* Dynamic width based on text */
+  }
+
+  .card-text:hover,  .card-text:focus{
+    background-color: #037971; /* Slightly lighter green */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Larger shadow for hover */
+  }
+  
+/* FOOTER STYLING */
+footer {
+    width: 100vw;
+    border-top: solid #037971;
+    background-color: #fffcf2;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 0px 50px;
+    display: grid;  
+    grid-template-columns: repeat(4,1fr);
+    align-items: center; 
+    column-gap: 50px;
+}
+
+.footer-header{
+    font-weight: bold;
+    font-size: larger;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+#disclaimer{
+    grid-column: 1/3
+}
+
+/* DIFFERENT LINK STATES IN FOOTER */
+footer a {
+    color: black;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+}
+/* unvisited */
+footer a:link{
+    color: black
+}
+/* hover */
+footer a:hover, footer a:focus{
+    font-weight: bold;
+    color: #03635D;
+    border-radius: 3px;
+    text-decoration: underline;
+}
+
+#footer-logo{
+    width: 100%;
+}
+  
+
+/* SOCIAL MEDIA ICONS STYLING */
+#socials{
+    display: flex;
+    gap:50px
+}
+.fa{
+    font-size: 50px;
+}
+
+.fa :link{
+    color: black
+}
+
+.fa:hover, .fa:focus{
+    color: #03635D;
+    text-decoration: none;
+   
+}
+
+.fa:active{
+    font-size: 40px;
+    text-decoration: none;
+}
+
+
+/* BACK TO TOP BUTTON */
+#toTopButton {
+    display: none; 
+    position: fixed; 
+    bottom: 20px;
+    right: 30px;
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: #03635D; 
+    color: white; 
+    cursor: pointer;
+    padding: 15px; 
+    border-radius: 10px; 
+  }
+  
+  #toTopButton:hover {
+    background-color: #037971; /* Add a dark-grey background on hover */
+    font-size: 120%;
+  }
+
+
+/* RECIPE CARD */
+
+.filterDiv {
+  display: none; /* Hidden by default */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.filterDiv:hover{
+    transform: translateY(-10px); 
+    cursor: pointer;
+}
+
+.recipes{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 20px;
+    row-gap: 50px;
+    margin: 30px;
+}
+
+
+.recipes img{
+    border-radius: 16px 16px 0px 0px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.recipes h3, .recipes p, .recipes h4, .recipes a, .recipes ul{
+    margin:10px 20px;
+}
+
+.recipes a{
+    display: block;
+    text-align: right;
+}
+
+.recipe-details{
+    background-color: #e6efef;
+    border-radius: 16px;
+    padding-bottom: 10px;
+}
+
+
+
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: inline;
+}
+
+#filterButtonsContainer{
+    margin:30px
+}
+/* Style the buttons */
+.filter {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #037971;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filter:hover {
+  background-color: #9ac1be;
+}
+
+.filter.active {
+  background-color:#024f4a;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Toggle more/less recipe info */
+.recipe-more-info {
+    display: none; /* Hide the additional content by default */
+  }
+
+/* DIFFERENT LINK STATES IN RECIPES */
+.recipes a {
+    color: black;
+    text-decoration: underline;
+    transition: all 0.2s ease-out;
+}
+/* unvisited */
+.recipes a{
+    color: black;
+    text-decoration: underline;
+}
+/* hover */
+.recipes a:hover, .recipes a:focus{
+    font-weight: bold;
+    color: #03635D;
+    border-radius: 3px;
+    text-decoration: underline;
+}
+
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+
+    html {
+        background-color: black;
+        color:#fffcf2
+    }
+
+    a.skip {
+        background-color: #fffcf2;
+        color: #03635D;
+    }
+
+    nav {
+        border-bottom: solid #fffcf2;
+        background-color: #037971;
+    }
+
+    /* DIFFERENT LINK STATES IN NAVBAR */
+nav a{
+    color: #fffcf2;
+}
+/* unvisited */
+nav a:link{
+    color: #fffcf2
+}
+/* hover */
+nav a:hover, nav a:focus{
+    background-color: #fffcf2;
+    color: #03635D;
+}
+
+/* if user is on this page, indicate in nav bar */
+.on-page{
+    color:#fffcf2;
+}
+
+footer {
+    border-top: solid #fffcf2 ;
+    background-color: #037971;
+}
+
+/* DIFFERENT LINK STATES IN FOOTER */
+footer a {
+    color: #fffcf2;
+}
+/* unvisited */
+footer a:link{
+    color: #fffcf2 
+}
+/* hover */
+footer a:hover, footer a:focus{
+    color: #fffdf5;
+}
+
+.fa :link{
+    color: #fffcf2
+}
+
+.fa:hover, .fa:focus{
+    color: #023436;
+}
+
+#main-logo img, #footer-logo{
+    background-color: #fffcf2;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+#header-homepage{
+margin-top: 100px;
+}
+
+
+
+#toTopButton {
+    background-color: #fffcf2 ; 
+    color: #03635D; 
+  }
+  
+  #toTopButton:hover {
+    background-color: #fffdf5; 
+  }
+
+.recipes{
+    color:#023436
+}
+
+}
+
+
+/* REDUCED MOTION 
+  reduce transitions and animations */
+  @media(prefers-reduced-motion: reduce) {
+    a.skip, nav a, footer a, .filterDiv, .recipes a{
+      transition: none;
+    }
+  
+    .snowflakes {
+      display: none;
+    }
+  
+    #profile-section img{
+      transition: none;
+      }
+  
+    }
+    
